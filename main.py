@@ -1,7 +1,7 @@
 import re
 import sys
 from datetime import time, datetime, timedelta
-
+from typing import Iterator
 
 type VttData = list[tuple[time, time, str]]
 
@@ -118,7 +118,7 @@ def time_to_seconds(t):
     return t.hour * 3600 + t.minute * 60 + t.second
 
 
-def split_time(start: time, end: time, count: int) -> zip[tuple[time, time]]:
+def split_time(start: time, end: time, count: int) -> Iterator[tuple[time, time]]:
     """Split a time range into multiple segments.
 
     If possible each segment will have an duration of ten seconds
