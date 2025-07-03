@@ -106,7 +106,7 @@ def split_subtitle(start: time, end: time, text: str) -> VttData:
     return [(s, e, line) for (line, (s, e)) in zip(lines, times)]
 
 
-def time_to_seconds(t):
+def time_to_seconds(t: time) -> int:
     """Convert a time object to total seconds.
 
     Args:
@@ -151,7 +151,7 @@ def split_time(start: time, end: time, count: int) -> Iterator[tuple[time, time]
     return zip(start_times, end_times)
 
 
-def split_text_by_sentences(text, max_length=120):
+def split_text_by_sentences(text: str, max_length: int = 120) -> list[str]:
     """Split text into chunks at sentence boundaries.
 
     Attempts to break text at sentence endings within the max_length limit.
@@ -185,7 +185,7 @@ def split_text_by_sentences(text, max_length=120):
     return chunks
 
 
-def end_of_sentence_before(text, pos):
+def end_of_sentence_before(text: str, pos: int) -> int:
     """Find the last sentence ending before a given position.
 
     Args:
@@ -238,7 +238,7 @@ def split_into_lines(text: str) -> list[str]:
     return lines
 
 
-def output_vtt(data: VttData, filename: str):
+def output_vtt(data: VttData, filename: str) -> None:
     """Write subtitle data to a WebVTT format file.
 
     Args:
@@ -261,7 +261,7 @@ def output_vtt(data: VttData, filename: str):
             file.write("\n")
 
 
-def main():
+def main() -> None:
     if len(sys.argv) != 2:
         print("You must give a file to convert")
         exit(-1)
