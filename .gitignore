@@ -192,3 +192,4 @@ pyrightconfig.json
 ### Local test files ###
 /*.txt
 /*.vtt
+/*.mp3
